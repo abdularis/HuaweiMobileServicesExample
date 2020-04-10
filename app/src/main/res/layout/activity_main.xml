@@ -20,6 +20,6 @@
         android:id="@+id/btnLocationKit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Location Kit" />
+        android:text="Map + Location Kit" />
 
 </LinearLayout>

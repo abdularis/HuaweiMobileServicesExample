@@ -17,6 +17,7 @@ import com.huawei.hms.location.LocationAvailability
 import com.huawei.hms.location.LocationCallback
 import com.huawei.hms.location.LocationResult
 import com.huawei.hms.location.LocationSettingsStatusCodes
+import com.huawei.hms.maps.MapFragment
 import kotlinx.android.synthetic.main.activity_location_kit.*
 import java.lang.Exception
 
@@ -51,6 +52,11 @@ class LocationKitActivity : AppCompatActivity() {
         setContentView(R.layout.activity_location_kit)
 
         locationApi = HuaweiLocationApi(this, locationErrorListener, locationUpdateListener)
+
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as MapFragment?
+        mapFragment?.getMapAsync {
+            Log.d("TestMe", "map view ready")
+        }
     }
 
     override fun onStart() {
@@ -121,7 +127,6 @@ class LocationKitActivity : AppCompatActivity() {
         }
         return true
     }
-
     companion object {
         private const val PERMISSION_REQ_CODE = 1
         private const val PERMISSION_REQ_CODE_Q = 2

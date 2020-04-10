@@ -58,4 +58,19 @@
         android:text="time"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <fragment
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/map"
+        class="com.huawei.hms.maps.MapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        map:cameraTargetLat="48.893478"
+        map:cameraTargetLng="2.334595"
+        map:cameraZoom="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
