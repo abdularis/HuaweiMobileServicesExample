@@ -1,4 +1,4 @@
-package com.aar.tryhuawei
+package com.aar.tryhuawei.auth
 
 import android.content.Context
 
