@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         sessionManager = SessionManager(this)
 
         btnAccountKit.setOnClickListener {
-            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+            startActivity(Intent(this@MainActivity, AuthActivity::class.java))
         }
 
         btnLocationKit.setOnClickListener {

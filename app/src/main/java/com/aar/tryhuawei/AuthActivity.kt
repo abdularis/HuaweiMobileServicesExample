@@ -11,9 +11,9 @@ import android.widget.Toast
 import com.huawei.hms.support.hwid.HuaweiIdAuthManager
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_auth.*
 
-class LoginActivity : AppCompatActivity() {
+class AuthActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "LoginActivity"
@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_auth)
 
         sessionManager = SessionManager(this)
 
@@ -87,10 +87,10 @@ class LoginActivity : AppCompatActivity() {
         val authService = HuaweiIdAuthManager.getService(this, authParams)
         val logoutTask = authService.signOut()
         logoutTask.addOnSuccessListener {
-            Toast.makeText(this@LoginActivity, "Logout successful", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@AuthActivity, "Logout successful", Toast.LENGTH_SHORT).show()
         }
         logoutTask.addOnFailureListener {
-            Toast.makeText(this@LoginActivity, "Logout failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@AuthActivity, "Logout failed", Toast.LENGTH_SHORT).show()
         }
 
         sessionManager.clearSession()
