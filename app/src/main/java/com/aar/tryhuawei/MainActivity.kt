@@ -10,10 +10,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var sessionManager: SessionManager
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        sessionManager = SessionManager(this)
 
         btnAccountKit.setOnClickListener {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
@@ -26,6 +30,24 @@ class MainActivity : AppCompatActivity() {
         GetTokenAction().getToken(this) {
             textToken.text = "Your push kit token: $it"
             Log.d("TestMe", "hms token: $it")
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        updateAccountStatus()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updateAccountStatus() {
+        if (sessionManager.isLogin) {
+            val session = sessionManager.session
+            val text = "You're logged in\n" +
+                    "name: ${session.displayName}\n" +
+                    "email: ${session.email}\n"
+            textAccount.text = text
+        } else {
+            textAccount.text = "You're not logged in to huawei ID"
         }
     }
 }
