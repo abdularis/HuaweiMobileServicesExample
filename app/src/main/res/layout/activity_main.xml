@@ -32,6 +32,13 @@
             android:text="Map + Location Kit" />
 
         <TextView
+            android:id="@+id/textHms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textIsSelectable="true"/>
+
+        <TextView
             android:id="@+id/textToken"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

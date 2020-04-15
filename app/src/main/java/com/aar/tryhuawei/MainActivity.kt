@@ -2,6 +2,7 @@ package com.aar.tryhuawei
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -33,6 +34,8 @@ class MainActivity : AppCompatActivity() {
             textToken.text = "Your push kit token: $it"
             Log.d("TestMe", "hms token: $it")
         }
+
+        showHmsStatus()
     }
 
     override fun onStart() {
@@ -53,5 +56,12 @@ class MainActivity : AppCompatActivity() {
         } else {
             textAccount.text = "You're not logged in to huawei ID"
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun showHmsStatus() {
+        textHms.text = "HMS Available: ${HuaweiUtils.checkHMSAvailable(this)}\n" +
+                "Is Huaweid Device: ${HuaweiUtils.isHuaweiDevice}\n" +
+                "Manufacturer: ${Build.MANUFACTURER}"
     }
 }
