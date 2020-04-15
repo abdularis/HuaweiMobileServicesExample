@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".auth.AuthActivity">
 
     <LinearLayout
@@ -19,11 +19,13 @@
             android:layout_marginBottom="16dp"
             android:textIsSelectable="true"/>
 
-        <Button
+        <com.huawei.hms.support.hwid.ui.HuaweiIdAuthButton
             android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login With Huawei ID" />
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            app:hwid_corner_radius="30dp"/>
 
         <Button
             android:id="@+id/btnLogout"
