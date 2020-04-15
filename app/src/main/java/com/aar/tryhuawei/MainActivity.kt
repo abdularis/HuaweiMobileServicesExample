@@ -46,7 +46,9 @@ class MainActivity : AppCompatActivity() {
             val session = sessionManager.session
             val text = "You're logged in\n" +
                     "name: ${session.displayName}\n" +
-                    "email: ${session.email}\n"
+                    "email: ${session.email}\n" +
+                    "openId: ${session.openId}\n" +
+                    "unionId: ${session.unionId}"
             textAccount.text = text
         } else {
             textAccount.text = "You're not logged in to huawei ID"

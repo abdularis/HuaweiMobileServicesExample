@@ -51,17 +51,24 @@ class AuthActivity : AppCompatActivity() {
                     val session = Session(
                         idToken = huaweiAccount.idToken,
                         displayName = huaweiAccount.displayName,
-                        email = huaweiAccount.email
+                        email = huaweiAccount.email,
+                        openId = huaweiAccount.openId,
+                        unionId = huaweiAccount.unionId
                     )
                     sessionManager.setSession(session)
                     updateTextStatus()
                     Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
 
+                    Log.d(TAG, "openId: ${huaweiAccount.openId}")
+                    Log.d(TAG, "uid ${huaweiAccount.uid}")
+                    Log.d(TAG, "unionId ${huaweiAccount.unionId}")
                     Log.d(TAG, "id token ${huaweiAccount.idToken}")
                     Log.d(TAG, "access token ${huaweiAccount.accessToken}")
                     Log.d(TAG, "display name ${huaweiAccount.displayName}")
                     Log.d(TAG, "email ${huaweiAccount.email}")
                     Log.d(TAG, "profile ${huaweiAccount.avatarUriString}")
+                    Log.d(TAG, "gender ${huaweiAccount.gender}")
+                    Log.d(TAG, "hw account ${huaweiAccount.huaweiAccount}")
                     Log.d(TAG, "$huaweiAccount")
                 } else {
                     Toast.makeText(this, "Failed to auth with Huawei ID", Toast.LENGTH_SHORT).show()
@@ -77,6 +84,8 @@ class AuthActivity : AppCompatActivity() {
             .setAccessToken()
             .setProfile()
             .setIdToken()
+            .setUid()
+            .setId()
             .createParams()
 
         val authService = HuaweiIdAuthManager.getService(this, authParams)

@@ -5,7 +5,9 @@ import android.content.Context
 data class Session(
     val idToken: String,
     val displayName: String,
-    val email: String
+    val email: String,
+    val openId: String,
+    val unionId: String
 )
 
 class SessionManager(context: Context) {
@@ -19,7 +21,9 @@ class SessionManager(context: Context) {
             return Session(
                 idToken = pref.getString("id_token", "") ?: "",
                 displayName = pref.getString("disp_name", "") ?: "",
-                email = pref.getString("email", "") ?: ""
+                email = pref.getString("email", "") ?: "",
+                openId = pref.getString("open_id", "") ?: "",
+                unionId = pref.getString("union_id", "") ?: ""
             )
         }
 
@@ -29,6 +33,8 @@ class SessionManager(context: Context) {
             .putString("id_token", session.idToken)
             .putString("disp_name", session.displayName)
             .putString("email", session.email)
+            .putString("open_id", session.openId)
+            .putString("union_id", session.unionId)
             .apply()
     }
 
