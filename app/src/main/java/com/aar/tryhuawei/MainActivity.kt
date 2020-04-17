@@ -9,6 +9,7 @@ import android.util.Log
 import com.aar.tryhuawei.auth.AuthActivity
 import com.aar.tryhuawei.auth.SessionManager
 import com.aar.tryhuawei.locationkit.LocationKitActivity
+import com.aar.tryhuawei.safeydetect.SafetyDetectActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +29,10 @@ class MainActivity : AppCompatActivity() {
 
         btnLocationKit.setOnClickListener {
             startActivity(Intent(this@MainActivity, LocationKitActivity::class.java))
+        }
+
+        btnSafetyDetect.setOnClickListener {
+            startActivity(Intent(this@MainActivity, SafetyDetectActivity::class.java))
         }
 
         GetTokenAction().getToken(this) {

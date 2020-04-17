@@ -31,6 +31,12 @@
             android:layout_height="wrap_content"
             android:text="Map + Location Kit" />
 
+        <Button
+            android:id="@+id/btnSafetyDetect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Safety Detect" />
+
         <TextView
             android:id="@+id/textHms"
             android:layout_width="match_parent"
