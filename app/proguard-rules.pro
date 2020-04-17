@@ -29,3 +29,10 @@
 -keep class com.hianalytics.android.**{*;}
 -keep class com.huawei.updatesdk.**{*;}
 -keep class com.huawei.hms.**{*;}
+
+
+#-keep class com.hianalytics.android.**{*;}
+#-keep class com.huawei.updatesdk.**{*;}
+#-keep class com.huawei.hms.**{*;}
+#-keep interface com.huawei.hms.analytics.type.HAEventType{*;}
+#-keep interface com.huawei.hms.analytics.type.HAParamType{*;}

@@ -1,5 +1,6 @@
 package com.aar.tryhuawei.safeydetect
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -25,13 +26,15 @@ class SafetyDetectActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun login() {
         val sd = SafetyDetect.getClient(this)
         SafetyDetect.getClient(this).userDetection(APP_ID)
             .addOnSuccessListener {
                 val userDetectResponse = it as UserDetectResponse
-
-                Log.d(TAG, "resp token ${userDetectResponse.responseToken}")
+                textCaptchaToken.text = "captcha response token:\n${userDetectResponse.responseToken}"
+                Toast.makeText(this@SafetyDetectActivity, "fake user detection success", Toast.LENGTH_SHORT).show()
+                Log.d(TAG, "resp token: ${userDetectResponse.responseToken}")
             }
             .addOnFailureListener {
                 Toast.makeText(this@SafetyDetectActivity, "User Detection Failed", Toast.LENGTH_SHORT).show()
